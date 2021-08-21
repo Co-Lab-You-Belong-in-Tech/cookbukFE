@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-const FollowRecipeScreen = ({navigation}) => {
+const AddRecipeFormScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Recipe Steps</Text>
+      <Text>Add Recipe Here</Text>
     </View>
   );
 };
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FollowRecipeScreen;
+export default AddRecipeFormScreen;

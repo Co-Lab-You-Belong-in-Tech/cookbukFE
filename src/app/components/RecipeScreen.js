@@ -1,14 +1,13 @@
 import React from 'react';
 import {Button, StyleSheet, View, Text} from 'react-native';
 
-const AddRecipeScreen = ({navigation}) => {
+const RecipeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text>Add Recipe</Text>
-      <Button title="Home" onPress={() => navigation.navigate('HomeScreen')} />
       <Button
-        title="Cookbook"
-        onPress={() => navigation.navigate('CookbookScreen')}
+        title="GetStarted"
+        onPress={() => navigation.navigate('FollowRecipeScreen')}
       />
     </View>
   );
@@ -22,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddRecipeScreen;
+export default RecipeScreen;
