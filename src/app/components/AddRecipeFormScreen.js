@@ -2,12 +2,12 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {globalStyles} from '../styles/global';
 
-const FollowRecipeScreen = ({navigation}) => {
+const AddRecipeFormScreen = ({navigation}) => {
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Recipe Steps</Text>
+      <Text style={globalStyles.titleText}>Add Recipe Here</Text>
     </View>
   );
 };
 
-export default FollowRecipeScreen;
+export default AddRecipeFormScreen;
