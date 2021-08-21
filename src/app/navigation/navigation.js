@@ -16,7 +16,11 @@ const Navigator = () => {
         component={HomeScreen}
         options={{title: 'Welcome to Cookbük'}}
       />
-      <Stack.Screen name="CookbookScreen" component={CookbookScreen} />
+      <Stack.Screen
+        name="CookbookScreen"
+        component={CookbookScreen}
+        options={{title: 'My Cookbook'}}
+      />
       <Stack.Screen name="RecipeScreen" component={RecipeScreen} />
       <Stack.Screen
         name="AddRecipeFormScreen"
