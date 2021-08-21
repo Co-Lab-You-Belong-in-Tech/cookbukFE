@@ -1,10 +1,11 @@
 import React from 'react';
-import {Button, StyleSheet, View, Text} from 'react-native';
+import {Button, View, Text} from 'react-native';
+import {globalStyles} from '../styles/global';
 
 const HomeScreen = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>Home</Text>
       <Button title="Home" onPress={() => navigation.navigate('HomeScreen')} />
       <Button
         title="Cookbook"
@@ -13,13 +14,5 @@ const HomeScreen = ({navigation}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default HomeScreen;

@@ -1,9 +1,11 @@
 import React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {Button, View, Text} from 'react-native';
+import {globalStyles} from '../styles/global';
 
 const CookbookScreen = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>My Cookbook</Text>
       <Button title="Home" onPress={() => navigation.navigate('HomeScreen')} />
       <Button
         title="AddRecipe"
@@ -16,12 +18,5 @@ const CookbookScreen = ({navigation}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
 
 export default CookbookScreen;
