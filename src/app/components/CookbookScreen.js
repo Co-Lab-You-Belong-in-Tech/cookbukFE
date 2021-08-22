@@ -1,9 +1,18 @@
 import React, {useState} from 'react';
-import {Button, View, Text, TouchableOpacity} from 'react-native';
+import {
+  Button,
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+  StyleSheet,
+} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {globalStyles} from '../styles/global';
+import Card from '../shared/card';
 
 const CookbookScreen = ({navigation}) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [recipes, setRecipes] = useState([
     {
       title: 'picadillo',
@@ -69,28 +78,46 @@ const CookbookScreen = ({navigation}) => {
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>My Cookbook</Text>
+      <Modal visible={modalOpen}>
+        <View style={styles.modalContent}>
+          <Text style={globalStyles.paragragh}>Hello!</Text>
+        </View>
+        <Button
+          title="Enter Recipe for Review"
+          onPress={() => setModalOpen(false)}
+        />
+      </Modal>
+      <Text style={globalStyles.titleText}>My Recipes</Text>
       <FlatList
         data={recipes}
         keyExtractor={item => item.recipeId}
         renderItem={({item}) => (
           <TouchableOpacity
             onPress={() => navigation.navigate('RecipeScreen', item)}>
-            <Text style={globalStyles.titleText}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />
       <Button title="Home" onPress={() => navigation.navigate('HomeScreen')} />
-      <Button
-        title="AddRecipe"
-        onPress={() => navigation.navigate('AddRecipeFormScreen')}
-      />
-      <Button
-        title="Recipe"
-        onPress={() => navigation.navigate('RecipeScreen')}
-      />
+      <Button title="AddRecipe" onPress={() => setModalOpen(true)} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  modalToggle: {
+    flex: 1,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#f2f2f2',
+    padding: 10,
+    alignSelf: 'center',
+  },
+  modalContent: {
+    flex: 1,
+  },
+});
 
 export default CookbookScreen;
