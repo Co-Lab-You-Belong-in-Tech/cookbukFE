@@ -6,10 +6,13 @@ import {
   TouchableOpacity,
   Modal,
   StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {globalStyles} from '../styles/global';
 import Card from '../shared/card';
+import AddRecipeFormScreen from './AddRecipeFormScreen';
 
 const CookbookScreen = ({navigation}) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -76,17 +79,26 @@ const CookbookScreen = ({navigation}) => {
     },
   ]);
 
+  const addRecipe = recipe => {
+    recipe.recipeId = Math.random.toString();
+    setRecipes(currentRecipes => {
+      return [recipe, ...currentRecipes];
+    });
+    setModalOpen(false);
+  };
+
   return (
     <View style={globalStyles.container}>
-      <Modal visible={modalOpen}>
-        <View style={styles.modalContent}>
-          <Text style={globalStyles.paragragh}>Hello!</Text>
-        </View>
-        <Button
-          title="Enter Recipe for Review"
-          onPress={() => setModalOpen(false)}
-        />
-      </Modal>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Modal visible={modalOpen}>
+          <View style={styles.modalContent}>
+            <Text style={globalStyles.paragragh}>Hello!</Text>
+          </View>
+          <AddRecipeFormScreen addRecipe={addRecipe} />
+          <Button title="Cancel" onPress={() => setModalOpen(false)} />
+        </Modal>
+      </TouchableWithoutFeedback>
+
       <Text style={globalStyles.titleText}>My Recipes</Text>
       <FlatList
         data={recipes}
