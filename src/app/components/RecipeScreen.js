@@ -20,7 +20,9 @@ const RecipeScreen = ({navigation, route}) => {
       />
       <Button
         title="GetStarted"
-        onPress={() => navigation.navigate('FollowRecipeScreen')}
+        onPress={() =>
+          navigation.navigate('FollowRecipeScreen', route.params.methods)
+        }
       />
     </View>
   );
