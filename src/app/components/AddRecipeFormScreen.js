@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Button, TextInput} from 'react-native';
 import {globalStyles} from '../styles/global';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import FlatButton from '../shared/button';
 
 const recipeSchema = yup.object({
   title: yup.string().required().min(4),
@@ -49,6 +50,7 @@ const AddRecipeFormScreen = ({navigation, addRecipe}) => {
             </Text>
             <TextInput
               multiline
+              minHeight={60}
               style={globalStyles.input}
               placeholder="Ingredients"
               onChangeText={formikProps.handleChange('ingredients')}
@@ -61,6 +63,7 @@ const AddRecipeFormScreen = ({navigation, addRecipe}) => {
             </Text>
             <TextInput
               multiline
+              minHeight={60}
               style={globalStyles.input}
               placeholder="Methods"
               onChangeText={formikProps.handleChange('methods')}
@@ -70,11 +73,7 @@ const AddRecipeFormScreen = ({navigation, addRecipe}) => {
             <Text style={globalStyles.errorText}>
               {formikProps.touched.methods && formikProps.errors.methods}
             </Text>
-            <Button
-              title="Add Recipe for Review"
-              color="blue"
-              onPress={formikProps.handleSubmit}
-            />
+            <FlatButton text="submit" onPress={formikProps.handleSubmit} />
           </View>
         )}
       </Formik>
