@@ -1,5 +1,6 @@
+/* eslint-disable radix */
 import React from 'react';
-import {View, Text, StyleSheet, Button, TextInput} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 import {globalStyles} from '../styles/global';
 import {Formik} from 'formik';
 import * as yup from 'yup';
