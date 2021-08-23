@@ -91,9 +91,6 @@ const CookbookScreen = ({navigation}) => {
     <View style={globalStyles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Modal visible={modalOpen}>
-          <View style={styles.modalContent}>
-            <Text style={globalStyles.paragragh}>Hello!</Text>
-          </View>
           <AddRecipeFormScreen addRecipe={addRecipe} />
           <Button title="Cancel" onPress={() => setModalOpen(false)} />
         </Modal>
