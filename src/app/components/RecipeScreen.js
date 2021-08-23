@@ -13,6 +13,11 @@ const RecipeScreen = ({navigation, route}) => {
         renderItem={({item}) => <Text>{item}</Text>}
         keyExtractor={(item, index) => index.toString()}
       />
+      <FlatList
+        data={route.params.methods}
+        renderItem={({item}) => <Text>{item}</Text>}
+        keyExtractor={(item, index) => index.toString()}
+      />
       <Button
         title="GetStarted"
         onPress={() => navigation.navigate('FollowRecipeScreen')}
