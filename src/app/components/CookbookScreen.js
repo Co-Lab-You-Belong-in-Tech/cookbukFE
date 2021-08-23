@@ -19,7 +19,7 @@ const CookbookScreen = ({navigation}) => {
     {
       title: 'picadillo',
       servings: 4,
-      ingredients: [{amount: '1 dum', ingredient: 'dummy ingredient'}],
+      ingredients: ['1 dum dummy ingredient'],
       methods: ['dummy method'],
       materials: ['dummy material'],
       favorite: true,
@@ -29,7 +29,7 @@ const CookbookScreen = ({navigation}) => {
     {
       title: 'black eyed peas & turkey necks',
       servings: 4,
-      ingredients: [{amount: '1 dum', ingredient: 'dummy ingredient'}],
+      ingredients: ['1 dum dummy ingredient'],
       methods: ['dummy method'],
       materials: ['dummy material'],
       favorite: true,
@@ -39,7 +39,7 @@ const CookbookScreen = ({navigation}) => {
     {
       title: 'peri peri chicken',
       servings: 4,
-      ingredients: [{amount: '1 dum', ingredient: 'dummy ingredient'}],
+      ingredients: ['1 dum dummy ingredient'],
       methods: ['dummy method'],
       materials: ['dummy material'],
       favorite: true,
@@ -49,7 +49,7 @@ const CookbookScreen = ({navigation}) => {
     {
       title: 'camarones a la criolla',
       servings: 4,
-      ingredients: [{amount: '1 dum', ingredient: 'dummy ingredient'}],
+      ingredients: ['1 dum dummy ingredient'],
       methods: ['dummy method'],
       materials: ['dummy material'],
       favorite: true,
@@ -59,7 +59,7 @@ const CookbookScreen = ({navigation}) => {
     {
       title: 'oxtail stew',
       servings: 4,
-      ingredients: [{amount: '1 dum', ingredient: 'dummy ingredient'}],
+      ingredients: ['1 dum dummy ingredient'],
       methods: ['dummy method'],
       materials: ['dummy material'],
       favorite: true,
@@ -69,7 +69,7 @@ const CookbookScreen = ({navigation}) => {
     {
       title: 'cuban black beans',
       servings: 4,
-      ingredients: [{amount: '1 dum', ingredient: 'dummy ingredient'}],
+      ingredients: ['1 dum dummy ingredient'],
       methods: ['dummy method'],
       materials: ['dummy material'],
       favorite: true,
