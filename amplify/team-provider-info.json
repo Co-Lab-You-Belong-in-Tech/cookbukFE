@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cookbukfe-dev-182545-authRole",
+      "UnauthRoleArn": "arn:aws:iam::820439974556:role/amplify-cookbukfe-dev-182545-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::820439974556:role/amplify-cookbukfe-dev-182545-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-cookbukfe-dev-182545-deployment",
+      "UnauthRoleName": "amplify-cookbukfe-dev-182545-unauthRole",
+      "StackName": "amplify-cookbukfe-dev-182545",
+      "StackId": "arn:aws:cloudformation:us-east-1:820439974556:stack/amplify-cookbukfe-dev-182545/3d297950-0073-11ec-87ea-0a7396047ff3",
+      "AmplifyAppId": "d2ua7z9btfd5hl"
+    }
+  }
+}

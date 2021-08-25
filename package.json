@@ -7,12 +7,19 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "@aws-amplify/ui-react": "^1.2.9",
+    "aws-amplify": "^4.2.3"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.6",
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-community/netinfo": "^6.0.0",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/stack": "^6.0.7",
+    "amazon-cognito-identity-js": "^5.1.0",
+    "aws-amplify": "^4.2.4",
+    "aws-amplify-react-native": "^5.0.3",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-cli": "^2.0.1",
