@@ -29,8 +29,8 @@ const Navigator = (props) => {
       >
         {props => <HomeScreen {...props} />}
         </Stack.Screen>
-      <Stack.Screen name="AddRecipeScreen" component={AddRecipeScreen} />
-      <Stack.Screen name="CookbookScreen" component={CookbookScreen} />
+      {/* <Stack.Screen name="AddRecipeScreen" component={AddRecipeScreen} />
+      <Stack.Screen name="CookbookScreen" component={CookbookScreen} /> */}
       {/* <Button title="Cognito" onPress={hostedUISignIn} /> */}
       <Stack.Screen
         name="CookbookScreen"
