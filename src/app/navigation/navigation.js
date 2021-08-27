@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {Image} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../components/HomeScreen';
-import AddRecipeScreen from '../components/AddRecipeScreen';
+import AddRecipeFormScreen from '../components/AddRecipeFormScreen';
 import CookbookScreen from '../components/CookbookScreen';
 import UserContext from '../../UserContext';
 
@@ -15,6 +15,8 @@ function LogoTitle() {
     /> : <></>)
   );
 }
+import RecipeScreen from '../components/RecipeScreen';
+import FollowRecipeScreen from '../components/FollowRecipeScreen';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,21 @@ const Navigator = (props) => {
       <Stack.Screen name="AddRecipeScreen" component={AddRecipeScreen} />
       <Stack.Screen name="CookbookScreen" component={CookbookScreen} />
       {/* <Button title="Cognito" onPress={hostedUISignIn} /> */}
+      <Stack.Screen
+        name="CookbookScreen"
+        component={CookbookScreen}
+        options={{title: 'My Cookbook'}}
+      />
+      <Stack.Screen
+        name="RecipeScreen"
+        component={RecipeScreen}
+        options={{title: ''}}
+      />
+      <Stack.Screen
+        name="AddRecipeFormScreen"
+        component={AddRecipeFormScreen}
+      />
+      <Stack.Screen name="FollowRecipeScreen" component={FollowRecipeScreen} />
     </Stack.Navigator>
   );
 };
