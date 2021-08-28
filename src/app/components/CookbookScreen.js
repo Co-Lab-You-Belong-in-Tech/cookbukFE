@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import { API } from 'aws-amplify';
+
 import {
   Button,
   View,
@@ -15,154 +17,28 @@ import AddRecipeFormScreen from './AddRecipeFormScreen';
 
 const CookbookScreen = ({navigation}) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [recipes, setRecipes] = useState([
-    {
-      title: 'picadillo',
-      servings: 4,
-      ingredients: [
-        '1 oz dummy ingredient',
-        '1 cup dummy ingredient',
-        '1 tbsp dummy ingredient',
-        '1 lb dummy ingredient',
-      ],
-      methods: [
-        'dummy method 1',
-        'dummy method 2',
-        'dummy method 3',
-        'dummy method 4',
-        'dummy method 5',
-        'dummy method 6',
-      ],
-      materials: ['dummy material'],
-      favorite: true,
-      recipeImg: 'dummyImgURL',
-      recipeId: '1',
-    },
-    {
-      title: 'black eyed peas & turkey necks',
-      servings: 4,
-      ingredients: [
-        '1 oz dummy ingredient',
-        '1 cup dummy ingredient',
-        '1 tbsp dummy ingredient',
-        '1 lb dummy ingredient',
-      ],
-      methods: [
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-      ],
-      materials: ['dummy material'],
-      favorite: true,
-      recipeImg: 'dummyImgURL',
-      recipeId: '2',
-    },
-    {
-      title: 'peri peri chicken',
-      servings: 4,
-      ingredients: [
-        '1 oz dummy ingredient',
-        '1 cup dummy ingredient',
-        '1 tbsp dummy ingredient',
-        '1 lb dummy ingredient',
-      ],
-      methods: [
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-      ],
-      materials: ['dummy material'],
-      favorite: true,
-      recipeImg: 'dummyImgURL',
-      recipeId: '3',
-    },
-    {
-      title: 'camarones a la criolla',
-      servings: 4,
-      ingredients: [
-        '1 oz dummy ingredient',
-        '1 cup dummy ingredient',
-        '1 tbsp dummy ingredient',
-        '1 lb dummy ingredient',
-      ],
-      methods: [
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-      ],
-      materials: ['dummy material'],
-      favorite: true,
-      recipeImg: 'dummyImgURL',
-      recipeId: '4',
-    },
-    {
-      title: 'oxtail stew',
-      servings: 4,
-      ingredients: [
-        '1 oz dummy ingredient',
-        '1 cup dummy ingredient',
-        '1 tbsp dummy ingredient',
-        '1 lb dummy ingredient',
-      ],
-      methods: [
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-      ],
-      materials: ['dummy material'],
-      favorite: true,
-      recipeImg: 'dummyImgURL',
-      recipeId: '5',
-    },
-    {
-      title: 'cuban black beans',
-      servings: 4,
-      ingredients: [
-        '1 oz dummy ingredient',
-        '1 cup dummy ingredient',
-        '1 tbsp dummy ingredient',
-        '1 lb dummy ingredient',
-      ],
-      methods: [
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-        'dummy method',
-      ],
-      materials: ['dummy material'],
-      favorite: true,
-      recipeImg: 'dummyImgURL',
-      recipeId: '6',
-    },
-  ]);
-
-  const addRecipe = recipe => {
-    recipe.recipeId = Math.random.toString();
-    setRecipes(currentRecipes => {
-      return [recipe, ...currentRecipes];
-    });
-    setModalOpen(false);
-  };
+  const [recipes, setRecipes] = useState([]);
+  
+  
+  useEffect(() => {
+    const fetchRecipes = async() => { 
+      const apiName = 'fetchRecipes';
+      const path = '/';
+      const response = await API.get(apiName, path);
+      console.log(response);  
+      setRecipes(response)
+    }
+    fetchRecipes().catch(console.log);
+  }, [navigation, modalOpen]);
+  // useEffect(() => {
+  //   console.log(recipes);
+  // }, [recipes]);
 
   return (
     <View style={globalStyles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Modal visible={modalOpen}>
-          <AddRecipeFormScreen addRecipe={addRecipe} />
+          <AddRecipeFormScreen setModalOpen={setModalOpen}/>
           <Button title="Cancel" onPress={() => setModalOpen(false)} />
         </Modal>
       </TouchableWithoutFeedback>
@@ -175,7 +51,7 @@ const CookbookScreen = ({navigation}) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('RecipeScreen', item)}>
             <Card>
-              <Text style={globalStyles.titleText}>{item.title}</Text>
+              <Text style={globalStyles.titleText}>{item.recipeTitle}</Text>
             </Card>
           </TouchableOpacity>
         )}
