@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { API } from 'aws-amplify';
+import {API} from 'aws-amplify';
 
 import {
   Button,
@@ -18,16 +18,15 @@ import AddRecipeFormScreen from './AddRecipeFormScreen';
 const CookbookScreen = ({navigation}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [recipes, setRecipes] = useState([]);
-  
-  
+
   useEffect(() => {
-    const fetchRecipes = async() => { 
+    const fetchRecipes = async () => {
       const apiName = 'fetchRecipes';
       const path = '/';
       const response = await API.get(apiName, path);
-      console.log(response);  
-      setRecipes(response)
-    }
+      console.log(response);
+      setRecipes(response);
+    };
     fetchRecipes().catch(console.log);
   }, [navigation, modalOpen]);
   // useEffect(() => {
@@ -38,7 +37,7 @@ const CookbookScreen = ({navigation}) => {
     <View style={globalStyles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Modal visible={modalOpen}>
-          <AddRecipeFormScreen setModalOpen={setModalOpen}/>
+          <AddRecipeFormScreen setModalOpen={setModalOpen} />
           <Button title="Cancel" onPress={() => setModalOpen(false)} />
         </Modal>
       </TouchableWithoutFeedback>

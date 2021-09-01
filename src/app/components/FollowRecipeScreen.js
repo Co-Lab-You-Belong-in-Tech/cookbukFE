@@ -7,12 +7,13 @@ import FlatButton from '../shared/button';
 const FollowRecipeScreen = ({navigation, route}) => {
   const [currentStep, setStep] = useState(0);
   const [nextButtonText, setNextButtonText] = useState('next');
+  const methods = route.params.split(', ');
 
   const pressNext = () => {
     if (nextButtonText === 'done') {
       navigation.navigate('CookbookScreen');
     }
-    if (currentStep === route.params.length - 2) {
+    if (currentStep === methods.length - 2) {
       setNextButtonText('done');
       setStep(currentStep + 1);
     } else {
@@ -21,7 +22,7 @@ const FollowRecipeScreen = ({navigation, route}) => {
   };
 
   const pressPrev = () => {
-    if (currentStep === route.params.length - 1) {
+    if (currentStep === methods.length - 1) {
       setStep(currentStep - 1);
       setNextButtonText('next');
     } else if (currentStep !== 0) {
@@ -34,9 +35,9 @@ const FollowRecipeScreen = ({navigation, route}) => {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Recipe Steps</Text>
-      {console.log(currentStep)}
+      {console.log(route.params.split(', '))}
       <Text>
-        Step {currentStep + 1} {route.params[currentStep]}
+        Step {currentStep + 1} {methods[currentStep]}
       </Text>
       <FlatButton text="prev" onPress={() => pressPrev()} />
       <FlatButton text={nextButtonText} onPress={() => pressNext()} />

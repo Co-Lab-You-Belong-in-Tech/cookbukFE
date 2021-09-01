@@ -6,15 +6,16 @@ import {FlatList} from 'react-native-gesture-handler';
 const RecipeScreen = ({navigation, route}) => {
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>{route.params.title}</Text>
+      {console.log(route.params.ingredients)}
+      <Text style={globalStyles.titleText}>{route.params.recipeTitle}</Text>
       <Text style={globalStyles.titleText}>{route.params.servings}</Text>
       <FlatList
-        data={route.params.ingredients}
+        data={route.params.ingredients.split(', ')}
         renderItem={({item}) => <Text>{item}</Text>}
         keyExtractor={(item, index) => index.toString()}
       />
       <FlatList
-        data={route.params.methods}
+        data={route.params.methods.split(', ')}
         renderItem={({item}) => <Text>{item}</Text>}
         keyExtractor={(item, index) => index.toString()}
       />
